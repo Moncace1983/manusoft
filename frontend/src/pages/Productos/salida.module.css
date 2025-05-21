@@ -1,0 +1,94 @@
+.salidaContainer {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  .inputProducto {
+    width: 75%;
+    padding: 15px 40px 12px 35px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: inset 0px 4px 12px rgba(0, 0, 0, 0.767);
+    transition: box-shadow 0.3s ease;
+    outline-color: rgba(0, 150, 255, 0.8);
+  }
+
+  .inputCantidad {
+    width: 73%;
+    padding: 15px 40px 12px 35px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: inset 0px 4px 12px rgba(0, 0, 0, 0.767);
+    transition: box-shadow 0.3s ease;
+    outline-color: rgba(0, 150, 255, 0.8);
+  }
+  
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+  }
+
+  table th {
+    background: linear-gradient(145deg, #ff4d4d, #d63333);
+    color: white;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  th,
+  td {
+    padding: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0p 6px 14px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03);
+  }
+  
+  .btn_imprimir {
+    background-color: #007bff;
+  }
+  
+  /* Vista imprimible */
+  @media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    .documento_salida,
+    .documento_salida * {
+      visibility: visible;
+    }
+  
+    .documento_salida {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background: white;
+      padding: 20px;
+    }
+  
+    .btn_imprimir {
+      display: none;
+    }
+  }
+  

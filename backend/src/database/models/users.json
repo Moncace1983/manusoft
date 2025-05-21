@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Cesar",
+    "email": "cesar@gmail.com",
+    "password": "1234"
+  },
+  {
+    "id": 2,
+    "name": "luz renteria",
+    "email": "luzr@gmail.com",
+    "password": "123456"
+  },
+  {
+    "id": 3,
+    "name": "",
+    "email": "",
+    "password": ""
+  },
+  {
+    "id": 4,
+    "name": "",
+    "email": "",
+    "password": ""
+  },
+  {
+    "id": 5,
+    "name": "user1",
+    "email": "user1@gmail.com",
+    "password": "Moncace1983"
+  },
+  {
+    "id": 6,
+    "name": "luz renteria",
+    "email": "user2@gmail.com",
+    "password": "Cesar2095"
+  },
+  {
+    "id": 7,
+    "name": "david",
+    "email": "david1@gmail.com",
+    "password": "$2b$10$egs3983pMaJHBrltY5HbY.8dU3CKHTx3j5Ns1wbUd5BMkDAU3HG3e"
+  },
+  {
+    "id": 8,
+    "name": "carlos castro",
+    "email": "ccastro@gmail.com",
+    "password": "$2b$10$inzAJknSThSYdjZsdVT1ReBqYCnndtThDF4Bg5iqAoJxZFW4Fdw/q"
+  },
+  {
+    "id": 9,
+    "name": "luz renteria",
+    "email": "user3@gmail.com",
+    "password": "$2b$10$HxqLmxe5XeSadh.KCcvor.36LhA6xayaooL7OkXUx.qRBXkhZffFC"
+  },
+  {
+    "id": 10,
+    "name": "Pedro",
+    "email": "pedro1@gmail.com",
+    "password": "$2b$10$HYhTzYaD0gOt9GlJyFDKbeNtD0g9SE2CW6W15QXEaj9lLNGAhXf3W"
+  }
+]

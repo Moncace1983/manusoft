@@ -1,0 +1,23 @@
+.header {
+    width: 99.8%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1px;
+    /*position: fixed;*/
+    background: linear-gradient(145deg, #ff4d4d, #d63333);
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.header_title {
+    margin-right: 500px;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.logo {
+    height: 95px;
+    margin-left: 600px;
+}

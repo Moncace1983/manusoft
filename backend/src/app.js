@@ -1,0 +1,35 @@
+import express from 'express';
+import usersRoutes from './routes/usersRoutes.js';
+import cors from 'cors';
+import productosRoutes from './routes/productosRoutes.js';
+import salidasRoutes from './routes/salidasRoutes.js';
+import entradaRoutes from './routes/entradaRoutes.js';
+
+// Express
+const app = express ();
+const PORT = process.env.PORT || 3002;
+
+//Configuracion de CORS
+const corsOptions = {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
+    allowedHeaders: ["Content-Type"],
+    credenrtials: true,
+};
+
+//Middlewares
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+app.use(express.json()); //Analizar datos JSON
+app.use(express.urlencoded({ extended: true })); //Analizar datos de formularios
+
+//Rutas
+app.use("/api/users", usersRoutes);
+app.use("/api/productos", productosRoutes);
+app.use("/api/salidas", salidasRoutes);
+app.use("/api/entradas", entradaRoutes);
+
+// Inicializar el servidor
+app.listen(PORT, () => {
+    console.log(`El servidor está corriendo en el puerto ${PORT}`);
+});

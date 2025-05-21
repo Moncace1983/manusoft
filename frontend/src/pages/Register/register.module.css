@@ -1,0 +1,132 @@
+.containerRegister {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+    background: white;
+}
+
+.titleRegister {
+    width: 100%;    
+    text-align: center;
+    font-family: 'poppins', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.formRegister {
+    background: linear-gradient(145deg, #ff4d4d, #d63333);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.container_labelRegister {
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    font-weight: 500;
+    margin: 10px 0 4px 0;
+}
+
+.input_containerRegister {
+    width: 80%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.inputRegister {
+    padding: 12px 40px 12px 35px;
+    border: none;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: inset 6px 5px 15px 5px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+    font-family: 'poppins', sans-serif;
+    outline-color: rgba(0, 150, 255, 0.8);
+}
+
+
+.iconRegister {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: black;
+}
+
+.eye_iconRegister {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: black;
+    cursor: pointer;
+}
+
+.button{
+    padding: 12px 25px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: 'poppins', sans-serif;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.button:hover{
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.button:active{
+    background-color: #004494;
+}
+
+.error-message{
+    color: white;
+    font-size: 12px;
+    margin-top: 5px;
+    animation: fadeIn 0.4s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+.link_register{
+    text-decoration: none;
+    color: blue;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: 'poppins', sans-serif;
+}
+
+.link_register:hover{
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

@@ -1,0 +1,32 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  color: #000;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background: linear-gradient(145deg, #ff4d4d, #d63333);
+}
