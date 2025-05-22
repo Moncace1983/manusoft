@@ -5,10 +5,20 @@ import SidebarMenu from "../../components/SidebarMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const ConsultaInventario = () => {
   const [productos, setProductos] = useState([]);
   const [busquedad, setBusquedad] = useState("");
+  const { logOut } = useAuth(); // Obtiene el token del contexto de autenticación
+  const { username } = useAuth(); // Obtiene el nombre de usuario del contexto de autenticación
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut(); // Llama a la función logOut del contexto
+    navigate("/"); // Redirige al usuario a la página de inicio de sesión
+  }
+
 
   const fetchProductos = async (searchTerm = "") => {
     try {
@@ -35,7 +45,7 @@ const ConsultaInventario = () => {
       
   return (
     <>
-    <SidebarMenu />
+    <SidebarMenu username={username} onLogout={handleLogOut} />
     <div className={styles.container}>
       <h2 className={styles.tittleConsulta} >Consulta de Inventario</h2>
       <form onSubmit={handleBuscar} className={styles.form}>

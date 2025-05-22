@@ -4,6 +4,7 @@ import cors from 'cors';
 import productosRoutes from './routes/productosRoutes.js';
 import salidasRoutes from './routes/salidasRoutes.js';
 import entradaRoutes from './routes/entradaRoutes.js';
+import informesRoutes from './routes/informesRoutes.js';
 
 // Express
 const app = express ();
@@ -28,6 +29,7 @@ app.use("/api/users", usersRoutes);
 app.use("/api/productos", productosRoutes);
 app.use("/api/salidas", salidasRoutes);
 app.use("/api/entradas", entradaRoutes);
+app.use("/api/informes", informesRoutes);
 
 // Inicializar el servidor
 app.listen(PORT, () => {

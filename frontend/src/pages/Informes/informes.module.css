@@ -1,0 +1,69 @@
+.informesContainer {
+  padding: 2rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.botonesInforme {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.boton {
+  padding: 0.5rem 1rem;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.boton:hover {
+  background-color: #1abc9c;
+  border: 2px solid black
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.tabla th,
+.tabla td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.botonImprimir {
+  margin-top: 2rem;
+  background-color: red;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.botonImprimir:hover {
+  background-color: #1abc9c;
+}
+
+.botonPDF {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  background-color: red;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.botonPDF:hover {
+  background-color: #27ae60;
+}

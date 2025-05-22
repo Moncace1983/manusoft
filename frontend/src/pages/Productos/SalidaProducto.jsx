@@ -1,11 +1,20 @@
 import { useState, useEffect } from "react";
 import styles from "./salida.module.css";
 import SidebarMenu from "../../components/SidebarMenu.jsx";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const SalidaProducto = () => {
   const [productos, setProductos] = useState([]);
   const [salidas, setSalidas] = useState([{ productoId: "", cantidad: "" }]);
   const [resumenSalida, setResumenSalida] = useState(null);
+    const { logOut } = useAuth(); // Obtiene el token del contexto de autenticación
+  const { username } = useAuth(); // Obtiene el nombre de usuario del contexto de autenticación
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut(); // Llama a la función logOut del contexto
+    navigate("/"); // Redirige al usuario a la página de inicio de sesión
+  }
 
   useEffect(() => {
     fetch("http://localhost:3002/api/productos")
@@ -175,7 +184,7 @@ const SalidaProducto = () => {
 
   return (
     <>
-      <SidebarMenu />
+      <SidebarMenu username={username} onLogout={handleLogOut} />
       <div className={styles.salidaContainer}>
         <h2>Salida de Productos</h2>
         <table>
