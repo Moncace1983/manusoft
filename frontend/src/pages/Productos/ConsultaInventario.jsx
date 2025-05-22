@@ -17,13 +17,12 @@ const ConsultaInventario = () => {
   const handleLogOut = () => {
     logOut(); // Llama a la función logOut del contexto
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
-  }
-
+  };
 
   const fetchProductos = async (searchTerm = "") => {
     try {
       const res = await axios.get("http://localhost:3002/api/productos", {
-        params: { search: searchTerm},
+        params: { search: searchTerm },
       });
       setProductos(res.data);
       if (res.data.length === 0) {
@@ -42,47 +41,53 @@ const ConsultaInventario = () => {
     e.preventDefault();
     fetchProductos(busquedad);
   };
-      
+
   return (
     <>
-    <SidebarMenu username={username} onLogout={handleLogOut} />
-    <div className={styles.container}>
-      <h2 className={styles.tittleConsulta} >Consulta de Inventario</h2>
-      <form onSubmit={handleBuscar} className={styles.form}>
-        <input
-        className={styles.inputConsulta}
-        type="text"
-        placeholder="Buscar producto"
-        value={busquedad}
-        onChange={(e) => setBusquedad(e.target.value)} />
-        <button className={styles.buttonConsulta} type="submit">Buscar</button>
-        <FontAwesomeIcon icon={faMagnifyingGlass} className={styles.iconConsulta} onClick={handleBuscar}/>
-      </form>
+      <SidebarMenu username={username} onLogout={handleLogOut} />
+      <div className={styles.container}>
+        <h2 className={styles.tittleConsulta}>Consulta de Inventario</h2>
+        <form onSubmit={handleBuscar} className={styles.form}>
+          <input
+            className={styles.inputConsulta}
+            type="text"
+            placeholder="Buscar producto"
+            value={busquedad}
+            onChange={(e) => setBusquedad(e.target.value)}
+          />
+          <button className={styles.buttonConsulta} type="submit">
+            Buscar
+          </button>
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            className={styles.iconConsulta}
+            onClick={handleBuscar}
+          />
+        </form>
 
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Cantidad</th>
-          </tr>
-        </thead>
-        <tbody>
-          {productos.map((producto) => (
-            <tr key={producto.id}>
-              <td>{producto.id}</td>
-              <td>{producto.nombre}</td>
-              <td>{producto.descripcion}</td>
-              <td>{producto.cantidad}</td>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Cantidad</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {productos.map((producto) => (
+              <tr key={producto.id}>
+                <td>{producto.id}</td>
+                <td>{producto.nombre}</td>
+                <td>{producto.descripcion}</td>
+                <td>{producto.cantidad}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
 
 export default ConsultaInventario;
-

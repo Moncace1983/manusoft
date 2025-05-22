@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import SidebarMenu from "../components/SidebarMenu";
 
 function Layout({ children }) {
   return (

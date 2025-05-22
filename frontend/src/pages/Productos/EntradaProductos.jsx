@@ -18,7 +18,7 @@ const EntradaProductos = () => {
   const handleLogOut = () => {
     logOut(); // Llama a la función logOut del contexto
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
-  }
+  };
 
   useEffect(() => {
     const fetchProductos = async () => {
@@ -85,18 +85,17 @@ const EntradaProductos = () => {
 
   const guardarIngreso = async () => {
     for (const prod of listaEntrada) {
+      try {
+        const payload = {
+          producto_id: prod.id,
+          nombre: prod.nombre,
+          cantidad: prod.cantidad,
+          fecha: new Date().toISOString().split("T")[0],
+        };
 
-          try {
-      const payload = {
-        producto_id: prod.id,
-        nombre: prod.nombre,
-        cantidad: prod.cantidad,
-        fecha: new Date().toISOString().split("T")[0],
-      };
-
-      console.log("Enviando:", payload);
-        await axios.post("http://localhost:3002/api/entradas", payload); }
-        catch (err) {
+        console.log("Enviando:", payload);
+        await axios.post("http://localhost:3002/api/entradas", payload);
+      } catch (err) {
         console.error(`Error al ingresar producto ${prod.nombre}:`, err);
         setError(`Error al ingresar ${prod.nombre}. Revisa el servidor.`);
         return;
@@ -106,7 +105,6 @@ const EntradaProductos = () => {
     setMensaje("¡ Ingreso guardado exitosamente !");
     setListaEntrada([]);
     setError(null);
-
   };
 
   return (
@@ -114,7 +112,6 @@ const EntradaProductos = () => {
       <SidebarMenu username={username} onLogout={handleLogOut} />
       <h2 className={styles.entradaTittle}>Entrada de Productos</h2>
       <div className={styles.entradaContainer}>
-
         <input
           className={styles.input}
           type="text"
@@ -157,10 +154,9 @@ const EntradaProductos = () => {
         )}
       </div>
       {mensaje && <p className={styles.mensajeExito}>{mensaje}</p>}
-        {error && <p className={styles.mensajeError}>{error}</p>}
+      {error && <p className={styles.mensajeError}>{error}</p>}
     </>
   );
 };
 
 export default EntradaProductos;
-

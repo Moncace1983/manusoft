@@ -10,11 +10,11 @@ const Informes = () => {
   const [datos, setDatos] = useState([]);
   const { logOut } = useAuth(); // Obtiene el token del contexto de autenticación
   const { username } = useAuth(); // Obtiene el nombre de usuario del contexto de autenticación
-const navigate = useNavigate();
-const handleLogOut = () => {
-        logOut(); // Llama a la función logOut del contexto
-        navigate("/"); // Redirige al usuario a la página de inicio de sesión
-    }
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut(); // Llama a la función logOut del contexto
+    navigate("/"); // Redirige al usuario a la página de inicio de sesión
+  };
 
   useEffect(() => {
     fetch(`http://localhost:3002/api/informes/${tipoInforme}`)
@@ -73,25 +73,25 @@ const handleLogOut = () => {
   };
 
   const descargarPDF = () => {
-  const tablaHTML = generarTablaHTML();
+    const tablaHTML = generarTablaHTML();
 
-  const contenido = `
+    const contenido = `
     <div>
       <h2>Informe de ${tipoInforme.toUpperCase()}</h2>
       ${tablaHTML}
     </div>
   `;
 
-  const opciones = {
-    margin: 0.5,
-    filename: `informe_${tipoInforme}.pdf`,
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2 },
-    jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-  };
+    const opciones = {
+      margin: 0.5,
+      filename: `informe_${tipoInforme}.pdf`,
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
 
-  html2pdf().from(contenido).set(opciones).save();
-};
+    html2pdf().from(contenido).set(opciones).save();
+  };
 
   return (
     <>
@@ -146,16 +146,16 @@ const handleLogOut = () => {
           )}
         </div>
 
-{datos.length > 0 && (
-  <>
-    <button onClick={imprimirInforme} className={styles.botonImprimir}>
-       Imprimir informe
-    </button>
-    <button onClick={descargarPDF} className={styles.botonPDF}>
-       Descargar PDF
-    </button>
-  </>
-)}
+        {datos.length > 0 && (
+          <>
+            <button onClick={imprimirInforme} className={styles.botonImprimir}>
+              Imprimir informe
+            </button>
+            <button onClick={descargarPDF} className={styles.botonPDF}>
+              Descargar PDF
+            </button>
+          </>
+        )}
       </div>
     </>
   );

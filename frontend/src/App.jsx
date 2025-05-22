@@ -5,10 +5,10 @@ import Layout from "./layout/Layout";
 function App() {
   return (
     <>
-    <AuthProvider>
-      <Layout>
-      <Router />
-      </Layout>
+      <AuthProvider>
+        <Layout>
+          <Router />
+        </Layout>
       </AuthProvider>
     </>
   );

@@ -8,13 +8,13 @@ const SalidaProducto = () => {
   const [productos, setProductos] = useState([]);
   const [salidas, setSalidas] = useState([{ productoId: "", cantidad: "" }]);
   const [resumenSalida, setResumenSalida] = useState(null);
-    const { logOut } = useAuth(); // Obtiene el token del contexto de autenticación
+  const { logOut } = useAuth(); // Obtiene el token del contexto de autenticación
   const { username } = useAuth(); // Obtiene el nombre de usuario del contexto de autenticación
   const navigate = useNavigate();
   const handleLogOut = () => {
     logOut(); // Llama a la función logOut del contexto
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
-  }
+  };
 
   useEffect(() => {
     fetch("http://localhost:3002/api/productos")
@@ -158,7 +158,9 @@ const SalidaProducto = () => {
       const producto = productos.find((p) => p.id === item.productoId);
 
       const tdNombre = doc.createElement("td");
-      tdNombre.innerText = producto ? producto.nombre : "Producto no encontrado";
+      tdNombre.innerText = producto
+        ? producto.nombre
+        : "Producto no encontrado";
 
       const tdCantidad = doc.createElement("td");
       tdCantidad.innerText = item.cantidad;
@@ -202,7 +204,8 @@ const SalidaProducto = () => {
                   <input
                     list="listaProductos"
                     value={
-                      productos.find((p) => p.id === salida.productoId)?.nombre || ""
+                      productos.find((p) => p.id === salida.productoId)
+                        ?.nombre || ""
                     }
                     onChange={(e) =>
                       handleCambio(index, "productoId", e.target.value)
@@ -222,7 +225,9 @@ const SalidaProducto = () => {
                   />
                 </td>
                 <td>
-                  <button onClick={() => handleEliminarFila(index)}>Eliminar</button>
+                  <button onClick={() => handleEliminarFila(index)}>
+                    Eliminar
+                  </button>
                 </td>
               </tr>
             ))}
@@ -240,7 +245,10 @@ const SalidaProducto = () => {
         </datalist>
 
         <button onClick={handleAgregarFila}>Agregar Producto</button>
-        <button onClick={handleConfirmarSalida} className={styles.btn_confirmar}>
+        <button
+          onClick={handleConfirmarSalida}
+          className={styles.btn_confirmar}
+        >
           Confirmar Salida
         </button>
       </div>
@@ -249,4 +257,3 @@ const SalidaProducto = () => {
 };
 
 export default SalidaProducto;
-

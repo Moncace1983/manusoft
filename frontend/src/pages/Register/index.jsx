@@ -12,7 +12,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
-  const [objData, setObjData] = useState({ username: "", email: "", password: "" });
+  const [objData, setObjData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
   const [errors, setErrors] = useState({});
   const [isDisabled, setIsDisabled] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -123,7 +127,13 @@ const Register = () => {
         <div>
           <h2 className={styles.titleRegister}>Registrar Usuario</h2>
           {successMsg && (
-            <div style={{ color: "green", textAlign: "center", marginBottom: "10px" }}>
+            <div
+              style={{
+                color: "green",
+                textAlign: "center",
+                marginBottom: "10px",
+              }}
+            >
               {successMsg}
             </div>
           )}
@@ -149,7 +159,10 @@ const Register = () => {
               <label>Email</label>
             </div>
             <div className={styles.input_containerRegister}>
-              <FontAwesomeIcon icon={faEnvelope} className={styles.iconRegister} />
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className={styles.iconRegister}
+              />
               <input
                 className={styles.inputRegister}
                 type="email"

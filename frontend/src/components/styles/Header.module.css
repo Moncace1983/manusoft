@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     padding: 1px;
-    /*position: fixed;*/
     background: linear-gradient(145deg, #ff4d4d, #d63333);
     color: white;
     text-align: center;
