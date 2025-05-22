@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import Register from "../pages/Register";
-import Login from "../pages/login/index";
-import Home from "../pages/Home/index";
+import Login from "../pages/Login/index.jsx";
+import Home from "../pages/Home/index.jsx";
 import Productos from "../pages/Productos";
 import ConsultaInventario from "../pages/Productos/ConsultaInventario";
 import PrivateRoutes from "./PrivateRoutes";
