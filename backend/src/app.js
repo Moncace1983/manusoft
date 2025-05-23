@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3002;
 const allowedOrigins = [
   "http://localhost:5173",             // desarrollo local
   "https://manusoft.vercel.app",       // producción en Vercel
+  "https://manusoft-git-master-moncaces-projects.vercel.app",   // Despliegue temporal en Vercel
 ];
 
 const corsOptions = {
