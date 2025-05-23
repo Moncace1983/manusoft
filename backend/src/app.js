@@ -32,9 +32,15 @@ const corsOptions = {
 };
 
 //Middlewares
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json()); //Analizar datos JSON
 app.use(express.urlencoded({ extended: true })); //Analizar datos de formularios
+app.use((req, res, next) => {
+ console.log(`Solicitud recibida desde: ${req.headers.origin}`);
+ next();
+});
+app.options('*', cors(corsOptions));
+
 
 //Rutas
 app.use("/api/users", usersRoutes);
