@@ -16,8 +16,10 @@ const SalidaProducto = () => {
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    fetch("http://localhost:3002/api/productos")
+    fetch("${API_URL}/api/productos")
       .then((res) => res.json())
       .then((data) => setProductos(data))
       .catch((err) => console.error("Error cargando inventario:", err));

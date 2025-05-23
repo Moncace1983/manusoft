@@ -18,10 +18,11 @@ const ConsultaInventario = () => {
     logOut(); // Llama a la función logOut del contexto
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
   };
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const fetchProductos = async (searchTerm = "") => {
     try {
-      const res = await axios.get("http://localhost:3002/api/productos", {
+      const res = await axios.get("${API_URL}/api/productos", {
         params: { search: searchTerm },
       });
       setProductos(res.data);

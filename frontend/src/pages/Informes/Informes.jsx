@@ -16,8 +16,10 @@ const Informes = () => {
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
-    fetch(`http://localhost:3002/api/informes/${tipoInforme}`)
+    fetch(`${API_URL}/api/informes/${tipoInforme}`)
       .then((res) => res.json())
       .then((data) => setDatos(data))
       .catch((error) =>

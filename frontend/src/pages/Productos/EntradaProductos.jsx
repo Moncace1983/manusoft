@@ -19,11 +19,12 @@ const EntradaProductos = () => {
     logOut(); // Llama a la función logOut del contexto
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
   };
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const res = await axios.get("http://localhost:3002/api/productos");
+        const res = await axios.get("${API_URL}/api/productos");
         setProductos(res.data);
       } catch (err) {
         console.error("Error al cargar productos:", err);

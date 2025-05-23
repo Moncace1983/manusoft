@@ -21,6 +21,8 @@ const FormularioProducto = () => {
     navigate("/"); // Redirige al usuario a la página de inicio de sesión
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProducto({ ...producto, [name]: value });
@@ -42,7 +44,7 @@ const FormularioProducto = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3002/api/productos", {
+      const response = await axios.post("${API_URL}/api/productos", {
         nombre: producto.nombre,
         descripcion: producto.descripcion,
       });

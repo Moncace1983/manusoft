@@ -72,11 +72,13 @@ const Register = () => {
     validations(name, value);
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const senData = async () => {
     try {
       console.log("Enviando datos", objData);
 
-      const response = await fetch("http://localhost:3002/api/users/register", {
+      const response = await fetch("${API_URL}/api/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -62,11 +62,11 @@ const Login = () => {
     validations(name, value);
   };
 
+  const API_URL = import.meta.env.VITE_API_URL;
   const senData = async () => {
     try {
       //console.log("Enviando datos", objData); // Verifica que se esta enviando
-
-      const response = await fetch("http://localhost:3002/api/users/login", {
+      const response = await fetch(`${API_URL}/api/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
