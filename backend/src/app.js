@@ -11,16 +11,27 @@ const app = express ();
 const PORT = process.env.PORT || 3002;
 
 //Configuracion de CORS
+const allowedOrigins = [
+  "http://localhost:5173",             // desarrollo local
+  "https://manusoft.vercel.app",       // producción en Vercel
+];
+
 const corsOptions = {
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], 
-    allowedHeaders: ["Content-Type"],
-    credenrtials: true,
+  origin: function (origin, callback) {
+    // Permitir sin origen (como Postman o curl)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type"],
+  credentials: true,
 };
 
 //Middlewares
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 app.use(express.json()); //Analizar datos JSON
 app.use(express.urlencoded({ extended: true })); //Analizar datos de formularios
 
