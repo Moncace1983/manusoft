@@ -72,8 +72,7 @@ const usersController = {
 
     // Login de usuario
     loginProcess: async (req, res) => {
-        console.log("Usuario buscado:", username);
-        console.log("Resultado de la consulta:", rows);
+        
         try {
             //Validar datos de entrada
             const resultValidation = validationResult(req);
@@ -82,6 +81,7 @@ const usersController = {
             }
             
             const {username, password} = req.body;
+            console.log("Usuario buscado:", username);
            
             const [rows] = await db.query("SELECT * FROM users WHERE username = ?", [username]);
             const userToLogin = rows[0]; // Obtener el primer usuario que coincida
