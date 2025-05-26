@@ -74,23 +74,21 @@ const Login = () => {
         body: JSON.stringify(objData),
       });
 
-      if (response.status === 400) {
-        const responseData = await response.json();
-        console.log(responseData.errors);
-        const errorMessages = {};
-        responseData.errors.forEach((error) => {
-          errorMessages[error.path] = error.msg;
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Login fallido:", errorData);
+        setErrors({
+          username: errorData.message || "Error interno del servidor",
         });
-        setErrors(errorMessages);
-        throw new Error("Error en la validación de datos");
-      } else {
-        const data = await response.json();
-        console.log("Login successful", data);
-        sessionStorage.setItem("authToken", data.token);
-        sessionStorage.setItem("userData", JSON.stringify(data.username));
-        setAuthData(data.token, data.username); // Actualizar el estado del token
-        navigate("/home");
+        return;
       }
+
+      const data = await response.json();
+      console.log("Login successful", data);
+      sessionStorage.setItem("authToken", data.token);
+      sessionStorage.setItem("userData", JSON.stringify(data.username));
+      setAuthData(data.token, data.username);
+      navigate("/home");
     } catch (error) {
       console.error("There was an error posting data", error);
     }

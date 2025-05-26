@@ -72,6 +72,8 @@ const usersController = {
 
     // Login de usuario
     loginProcess: async (req, res) => {
+        console.log("Usuario buscado:", username);
+        console.log("Resultado de la consulta:", rows);
         try {
             //Validar datos de entrada
             const resultValidation = validationResult(req);
