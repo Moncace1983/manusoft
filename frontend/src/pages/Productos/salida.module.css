@@ -1,6 +1,7 @@
 .salidaContainer {
     max-width: 800px;
     margin: auto;
+    margin-left: 120px;
     padding: 20px;
   }
 
@@ -80,7 +81,7 @@
   
     .documento_salida {
       position: absolute;
-      left: 100px;
+      left: 0px;
       top: 0;
       width: 100%;
       background: white;
