@@ -58,3 +58,41 @@
     transition: all 0.3s ease-in-out;
   }
    
+  .mensajeVacio {
+  color: #e63946;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+  .mensajeVacio span {
+    color: #ff4d4d;
+  }
+
+  .mensajeVacio a {
+    color: #ff4d4d;
+    text-decoration: underline;
+  }
+
+  .mensajeVacio a:hover {
+    color: #e63946;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      margin-left: 0;
+      padding: 10px;
+    }
+    
+    .form input {
+      width: 100%;
+    }
+    
+    .table {
+      width: 100%;
+    }
+    
+    .inputConsulta {
+      width: 100%;
+    }
+  }
