@@ -22,7 +22,7 @@ const ConsultaInventario = () => {
 
   const fetchProductos = async (searchTerm = "") => {
     try {
-      const res = await axios.get("${API_URL}/api/productos", {
+      const res = await axios.get('${API_URL}/api/productos', {
         params: { search: searchTerm },
       });
       setProductos(res.data);
