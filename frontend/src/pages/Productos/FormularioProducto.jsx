@@ -43,10 +43,12 @@ const FormularioProducto = () => {
       return;
     }
 
+    console.log("Enviando producto:", producto);
+
     try {
       const response = await axios.post(`${API_URL}/api/productos`, {
-        nombre: producto.nombre,
-        descripcion: producto.descripcion,
+        nombre: producto.nombre.trim(),
+        descripcion: producto.descripcion.trim(),
       });
 
       setMensaje("✅ Producto creado correctamente.");
