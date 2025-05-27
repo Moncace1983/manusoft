@@ -1,5 +1,5 @@
 .header {
-    width: 99.8%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding: 1px;
@@ -19,4 +19,17 @@
 .logo {
     height: 95px;
     margin-left: 600px;
+}
+
+@media screen and (max-width: 768px) {
+    .header_title {
+        margin-right: 0;
+        font-size: 24px;
+    }
+    
+    .logo {
+        height: 70px;
+        margin-left: 0;
+    }
+    
 }

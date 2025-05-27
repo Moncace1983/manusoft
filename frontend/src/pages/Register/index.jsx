@@ -78,7 +78,7 @@ const Register = () => {
     try {
       console.log("Enviando datos", objData);
 
-      const response = await fetch("${API_URL}/api/users/register", {
+      const response = await fetch(`${API_URL}/api/users/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
