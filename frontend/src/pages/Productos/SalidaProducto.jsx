@@ -19,7 +19,7 @@ const SalidaProducto = () => {
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch('${API_URL}/api/productos')
+    fetch(`${API_URL}/api/productos`)
       .then((res) => res.json())
       .then((data) => setProductos(data))
       .catch((err) => console.error("Error cargando inventario:", err));
@@ -81,7 +81,7 @@ const SalidaProducto = () => {
 
     // Si pasa la validación, continúa con la solicitud
     try {
-      const response = await fetch('${API_URL}/api/salidas', {
+      const response = await fetch(`${API_URL}/api/salidas`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -44,7 +44,7 @@ const FormularioProducto = () => {
     }
 
     try {
-      const response = await axios.post('${API_URL}/api/productos', {
+      const response = await axios.post(`${API_URL}/api/productos`, {
         nombre: producto.nombre,
         descripcion: producto.descripcion,
       });
