@@ -8,17 +8,22 @@ router.post("/", async (req, res) => {
   const { nombre, descripcion } = req.body;
   console.log("Datos recibidos:", req.body);
 
+  // Validar que los campos no estén vacíos
+  if (!nombre || !descripcion) {
+    return res.status(400).json({ error: "Nombre y descripción son obligatorios." });
+  }
+
   try {
     // Verificar si ya existe un producto con el mismo nombre o descripción
     const [existente] = await db.execute(
-      "SELECT * FROM productos WHERE nombre = ? OR descripcion = ?",
+      "SELECT * FROM productos WHERE nombre = ? AND descripcion = ?",
       [nombre, descripcion]
     );
 
     if (existente.length > 0) {
       return res
         .status(400)
-        .json({ error: "Ya existe un producto con el mismo nombre o descripción." });
+        .json({ error: "Ya existe un producto con el mismo nombre y descripción." });
     }
 
     // Insertar solo si no hay duplicados
