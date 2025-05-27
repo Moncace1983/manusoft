@@ -80,7 +80,7 @@
   
     .documento_salida {
       position: absolute;
-      left: 0;
+      left: 100px;
       top: 0;
       width: 100%;
       background: white;
