@@ -24,7 +24,7 @@ const EntradaProductos = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const res = await axios.get("${API_URL}/api/productos");
+        const res = await axios.get(`${API_URL}/api/productos`);
         setProductos(res.data);
       } catch (err) {
         console.error("Error al cargar productos:", err);
@@ -95,7 +95,7 @@ const EntradaProductos = () => {
         };
 
         console.log("Enviando:", payload);
-        await axios.post("http://localhost:3002/api/entradas", payload);
+        await axios.post(`${API_URL}/api/entradas`, payload);
       } catch (err) {
         console.error(`Error al ingresar producto ${prod.nombre}:`, err);
         setError(`Error al ingresar ${prod.nombre}. Revisa el servidor.`);
