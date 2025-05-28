@@ -45,20 +45,27 @@ router.get("/", async (req, res) => {
   const { search } = req.query;
 
   try {
-let query = "SELECT * FROM productos";
-let params = [];
+    let query = "SELECT * FROM productos";
+    let params = [];
 
-if (search) {
-  query += " WHERE nombre LIKE ? OR id = ?";
-  params = [`%${search}%`, search];
-}
+    if (search) {
+      if (!isNaN(search)) {
+        // Si es número, buscar solo por ID
+        query += " WHERE id = ?";
+        params.push(Number(search));
+      } else {
+        // Si es texto, buscar solo por descripción
+        query += " WHERE descripcion LIKE ?";
+        params.push(`%${search}%`);
+      }
+    }
 
-const [productos] = await db.execute(query, params);
-res.json(productos);
-} catch (error) {
-  console.error("Error al consultar productos.", error);
-  res.status(500).json({ message: "Error al obtener productos"});
-}
+    const [productos] = await db.execute(query, params);
+    res.json(productos);
+  } catch (error) {
+    console.error("Error al consultar productos.", error);
+    res.status(500).json({ message: "Error al obtener productos" });
+  }
 });
 
 export default router;
