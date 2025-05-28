@@ -7,19 +7,18 @@ import entradaRoutes from './routes/entradaRoutes.js';
 import informesRoutes from './routes/informesRoutes.js';
 
 // Express
-const app = express ();
+const app = express();
 const PORT = process.env.PORT || 3002;
 
-//Configuracion de CORS
+// Configuración de CORS
 const allowedOrigins = [
-  "http://localhost:5173",             // desarrollo local
-  "https://manusoft.vercel.app",       // producción en Vercel
-  "https://manusoft-git-master-moncaces-projects.vercel.app",   // Despliegue temporal en Vercel
+  "http://localhost:5173",
+  "https://manusoft.vercel.app",
+  "https://manusoft-git-master-moncaces-projects.vercel.app"
 ];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Permitir sin origen (como Postman o curl)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -31,25 +30,28 @@ const corsOptions = {
   credentials: true,
 };
 
-//Middlewares
-app.use(cors());
-app.use(express.json()); //Analizar datos JSON
-app.use(express.urlencoded({ extended: true })); //Analizar datos de formularios
+// Middleware de CORS con configuración correcta
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Para solicitudes preflight
+
+// Middleware para ver el origen en consola (opcional, útil para depuración)
 app.use((req, res, next) => {
- console.log(`Solicitud recibida desde: ${req.headers.origin}`);
- next();
+  console.log(`Solicitud recibida desde: ${req.headers.origin}`);
+  next();
 });
-app.options('*', cors(corsOptions));
 
+// Middleware de Express
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-//Rutas
+// Rutas
 app.use("/api/users", usersRoutes);
 app.use("/api/productos", productosRoutes);
 app.use("/api/salidas", salidasRoutes);
 app.use("/api/entradas", entradaRoutes);
 app.use("/api/informes", informesRoutes);
 
-// Inicializar el servidor
+// Inicializar servidor
 app.listen(PORT, () => {
-    console.log(`El servidor está corriendo en el puerto ${PORT}`);
+  console.log(`El servidor está corriendo en el puerto ${PORT}`);
 });
