@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./styles/SidebarMenu.module.css";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import menuIcon from "../assets/menu.jpg";
 import { useAuth } from "../context/AuthContext";
@@ -13,7 +12,7 @@ const SidebarMenu = ({ onLogout }) => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
     if (isOpen) {
-      setIsProductosOpen(false); // Cierra el submenú al cerrar el sidebar.
+      setIsProductosOpen(false);
     }
   };
 
@@ -22,22 +21,24 @@ const SidebarMenu = ({ onLogout }) => {
   };
 
   const handleSubmenuClick = () => {
-    setIsOpen(false); // Cerrar el sidebar.
-    setIsProductosOpen(false); // Cerrar el submenú.
+    setIsOpen(false);
+    setIsProductosOpen(false);
   };
 
   return (
     <>
-      {/* Botón para abrir el menú */}
+      {/* Ícono fijo del menú, se mueve si el sidebar está abierto */}
+      <div
+        className={`${styles.menuIconContainer} ${isOpen ? styles.menuIconOpen : ""}`}
+        onClick={toggleSidebar}
+      >
+        <img src={menuIcon} alt="Menu" className={styles.menuIcon} />
+        <span className={styles.titleMenu}>Menú</span>
+      </div>
+
+      {/* Sidebar lateral */}
       <div className={`${styles.sidebar} ${isOpen ? styles.open : ""}`}>
-        <div className={styles.menuIconContainer} onClick={toggleSidebar}>
-          <img src={menuIcon} alt="Menu" className={styles.menuIcon} />
-          <span className={styles.titleMenu}>Menú</span>
-        </div>
-
-        {/* Menú lateral */}
-
-        <h3>Hola, {username?.nombre ? username.nombre : "usuario"}</h3>
+        <h3>Hola, {username?.nombre || "usuario"}</h3>
 
         <ul>
           <li>
@@ -79,16 +80,18 @@ const SidebarMenu = ({ onLogout }) => {
               Informes
             </Link>
           </li>
+
           <button onClick={onLogout} className={styles.button}>
             Cerrar Sesión
           </button>
         </ul>
       </div>
 
-      {/* Fondo oscuro al abrir el menú */}
+      {/* Fondo oscuro para cerrar el menú */}
       {isOpen && <div className={styles.overlay} onClick={toggleSidebar}></div>}
     </>
   );
 };
 
 export default SidebarMenu;
+

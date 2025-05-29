@@ -16,16 +16,21 @@
   left: 0;
 }
 
+/* Ícono del menú */
 .menuIconContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
-  cursor: pointer;
   position: fixed;
   top: 20px;
   left: 20px;
+  cursor: pointer;
   z-index: 1300;
+  transition: left 0.3s ease-in-out;
+}
+
+.menuIconOpen {
+  left: 280px; 
 }
 
 .menuIcon {
@@ -40,6 +45,7 @@
   font-weight: bold;
 }
 
+/* Lista del menú */
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -64,8 +70,8 @@
   color: white;
   padding: 20px 0;
   text-decoration: none;
-  cursor: pointer;
   display: block;
+  cursor: pointer;
 }
 
 .sidebar a:hover {
@@ -106,6 +112,7 @@
   transform: scale(1.03);
 }
 
+/* Submenú */
 .submenu {
   margin-left: 20px;
   display: flex;
@@ -122,31 +129,21 @@
   text-decoration: underline;
 }
 
-/* Responsive: para móviles */
+/* Responsive */
 @media screen and (max-width: 768px) {
   .sidebar {
     width: 240px;
     left: -240px;
-    height: 100vh;
     padding-top: 60px;
   }
 
-  .open {
-    left: 0;
-  }
-
-  .sidebar ul {
-    margin-top: 0;
-  }
+  .menuIconOpen {
+  left: 280px; /* o 240px para móviles, puedes ajustar con media queries si deseas */
+}
 
   .menuIconContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
     top: 15px;
     left: 15px;
-    z-index: 1300;
   }
 
   .titleMenu {
@@ -154,3 +151,8 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .menuIconOpen {
+    left: 240px;
+  }
+}
