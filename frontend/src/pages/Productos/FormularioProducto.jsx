@@ -76,6 +76,7 @@ const FormularioProducto = () => {
           type="text"
           name="nombre"
           placeholder="Nombre"
+          value={producto.nombre}
           onChange={handleChange}
           required
         />
@@ -84,6 +85,7 @@ const FormularioProducto = () => {
           type="text"
           name="descripcion"
           placeholder="Tipo de producto"
+          value={producto.descripcion}
           onChange={handleChange}
         />
 
