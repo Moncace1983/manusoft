@@ -29,5 +29,10 @@ const db = mysql.createPool({
   queueLimit: 0,
 });
 
+// ping cada 5 minutos para mantener la conexión activa
+setInterval(() => {
+  db.query('SELECT 1').catch(err => console.error("Ping MySQL:", err));
+}, 300000);
+
 export default db;
 
